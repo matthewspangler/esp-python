@@ -1,0 +1,24 @@
+matches:
+  - trigger: ";;py"
+    replace: "{{output}}"
+    vars:
+    - name: pythonform
+      type: form
+      params:
+        layout: | 
+          Input Python code here: [[code]]
+        fields:
+          code:
+            multiline: true
+    - name: output
+      type: shell
+      params:
+        cmd: "echo {{pythonform.code}} | /usr/bin/python3"
+          
+  - regex: ";py (?P<pycmd>.*);"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "echo $ESPANSO_PYCMD | /usr/bin/python3"

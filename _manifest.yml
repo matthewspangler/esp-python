@@ -1,0 +1,6 @@
+name: "python-espanso-runner"
+title: "Espanso Python Runner"
+description: A macro to run Python commands from Espanso
+version: 0.1.0
+author: Matthew Spangler
+tags: ["python", "regex"]
